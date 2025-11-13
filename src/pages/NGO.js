@@ -381,7 +381,7 @@ const NGO = () => {
           Join NGOs already making a difference in their communities through food donations.
         </p>
         <Link
-          to="/ngo-dashboard"
+          to="/registration"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
