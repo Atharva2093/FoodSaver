@@ -62,15 +62,6 @@ const Contributors = () => {
           }
         });
 
-        // --- 2. Process Commits for Timeline ---
-        const formattedActivity = commitsData.map(commit => ({
-          sha: commit.sha,
-          message: commit.commit.message.split('\n')[0], // Get first line of message
-          author: commit.commit.author.name,
-          date: new Date(commit.commit.author.date).toLocaleDateString(),
-        }));
-        setActivity(formattedActivity);
-
         // --- 3. Process Contributors ---
         let totalCommits = 0;
         let totalPRs = 0;
@@ -293,28 +284,6 @@ const Contributors = () => {
                 </button>
               </div>
             )}
-
-            {/* --- Dynamic Activity Timeline --- */}
-            <div id="activityTimeline" className="timeline-container">
-              <h2>Recent Contribution Activity</h2>
-              <div id="timelineContent" className="timeline-content">
-                {activity.length > 0 ? (
-                  activity.map(item => (
-                    <div className="timeline-item" key={item.sha}>
-                      <div className="timeline-content-item">
-                        <div className="timeline-date">{item.date}</div>
-                        <h3 className="timeline-title-item">{item.author}</h3>
-                        <p className="timeline-desc">{item.message}</p>
-                      </div>
-                      <div className="timeline-dot"></div>
-                    </div>
-                  ))
-                ) : (
-                  !isLoading && <p>No recent activity found.</p>
-                )}
-              </div>
-            </div>
-            
           </div>
         </section>
 
