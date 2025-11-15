@@ -33,6 +33,7 @@ A modern React application that connects restaurants with NGOs to reduce food wa
 - [Support the Project](#-support-the-project)
 - [Support](#-support)
 - [Acknowledgments](#-acknowledgments)
+* [Contributing](#contributing)
 
 
 ## 🌍 Project Vision & Impact
@@ -288,6 +289,11 @@ For support and questions:
 - Haldia Institute of Technology for supporting this initiative
 - Government of West Bengal for their partnership
 - All the restaurants and NGOs who make this platform possible
+
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to FoodSaver.
 
 ---
 
