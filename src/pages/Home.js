@@ -57,18 +57,187 @@ const Home = () => {
   ];
 
   return (
-    <div className="content-wrapper">
-      {/* Hero Section */}
-      <div className="hero-section">
-        <div className="hero-card">
-          <div className="hero-text-content">
-            <h1 className="hero-title">Connect, Reduce, Impact</h1>
-            <h2 className="hero-subtitle">
-              <div className="typewriter">{typewriterText}</div>
-              <p className="he">
-                Join FoodSaver, the platform that connects restaurants with NGOs to minimize food waste and feed those in need. Together, we can make a difference.
-              </p>
-            </h2>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(to bottom, #0a0a0a, #1a1a1a)",
+        color: "white",
+        overflowX: "hidden",
+      }}
+    >
+      {/* Animated Background */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+        }}
+      >
+        {/* Grid Pattern */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(rgba(16,185,129,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.1) 1px, transparent 1px)",
+            backgroundSize: "100px 100px",
+            opacity: 0.3,
+          }}
+        />
+
+        {/* Floating Orbs */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined"
+                  ? window.innerWidth
+                  : 1000),
+              y:
+                Math.random() *
+                (typeof window !== "undefined"
+                  ? window.innerHeight
+                  : 1000),
+              scale: Math.random() * 0.5 + 0.5,
+            }}
+            animate={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined"
+                  ? window.innerWidth
+                  : 1000),
+              y:
+                Math.random() *
+                (typeof window !== "undefined"
+                  ? window.innerHeight
+                  : 1000),
+              scale: Math.random() * 0.5 + 0.5,
+            }}
+            transition={{
+              duration: Math.random() * 20 + 15,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            style={{
+              position: "absolute",
+              width: Math.random() * 300 + 100 + "px",
+              height: Math.random() * 300 + 100 + "px",
+              borderRadius: "50%",
+              background: `radial-gradient(circle, rgba(16,185,129,${
+                Math.random() * 0.2 + 0.1
+              }), transparent)`,
+              filter: "blur(40px)",
+            }}
+          />
+        ))}
+      </div>
+
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          maxWidth: "1400px",
+          margin: "0 auto",
+          padding: "0 20px",
+        }}
+      >
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "60px 20px",
+            gap: "40px",
+          }}
+        >
+          {/* Left: Text Content */}
+          <div style={{ flex: 1, maxWidth: "600px" }}>
+            <motion.h1
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              style={{
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontWeight: "900",
+                marginBottom: "24px",
+                background:
+                  "linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                lineHeight: 1.1,
+              }}
+            >
+              Connect, Reduce, Impact
+            </motion.h1>
+
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              style={{
+                fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                fontWeight: "600",
+                marginBottom: "24px",
+                color: "#10b981",
+                minHeight: "60px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              {currentText}
+              <span style={{ opacity: 0.5 }}>|</span>
+            </motion.div>
+
+            <motion.p
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              style={{
+                fontSize: "clamp(1rem, 2vw, 1.25rem)",
+                color: "rgba(255,255,255,0.7)",
+                lineHeight: "1.8",
+                marginBottom: "40px",
+              }}
+            >
+              Join FoodSaver, the platform that connects restaurants with NGOs to minimize food waste and feed those in need. Together, we can make a difference.
+            </motion.p>
+
+            <motion.button
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 60px rgba(16, 185, 129, 0.5)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                padding: "20px 48px",
+                background:
+                  "linear-gradient(135deg, #10b981, #059669)",
+                color: "white",
+                fontWeight: "700",
+                fontSize: "1.25rem",
+                borderRadius: "50px",
+                border: "none",
+                cursor: "pointer",
+                boxShadow: "0 10px 40px rgba(16,185,129,0.4)",
+              }}
+            >
+              Get Started
+            </motion.button>
           </div>
           <Link to="/registration" className="cta-button final-cta-button">
             <span className="cta-text">Get Started</span>
@@ -76,41 +245,116 @@ const Home = () => {
         </div>
       </div>
 
-    <div className="stats-section">
-  {statsData.map((stat, index) => (
-    <div key={index} className="stat-card">
-      <div className="stat-icon">
-        {index === 0 && <i className="fas fa-utensils"></i>}
-        {index === 1 && <i className="fas fa-hand-holding-heart"></i>}
-        {index === 2 && <i className="fas fa-users"></i>}
-      </div>
-      <p className="stat-value">
-  <CountUp end={parseInt(stat.value.replace(/\D/g, ''))} duration={2} /> {stat.value.includes('kg') ? 'kg' : ''}
-</p>
-      <p className="stat-label">{stat.label}</p>
-    </div>
-  ))}
-</div>
+         
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            style={{
+              flex: 1,
+              maxWidth: "600px",
+              width: "100%",
+              height: "auto",
+              borderRadius: "16px",
+              overflow: "hidden",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+            }}
+          >
+            <img
+              src="https://thumbs.dreamstime.com/b/homeless-beggars-street-allahabad-india-poor-indian-woman-children-begging-food-streets-uttar-pradesh-74305275.jpg"
+              alt="People in need"
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                objectFit: "cover",
+              }}
+            />
+          </motion.div>
+        </motion.div>
 
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          onViewportEnter={() => setCountStart(true)}
+          transition={{ duration: 0.8 }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "32px",
+            marginBottom: "120px",
+            padding: "40px 0",
+          }}
+        >
+          {statsData.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ y: -10, scale: 1.03 }}
+              viewport={{ once: true }}
+              style={{
+                position: "relative",
+                padding: "40px",
+                background: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+                borderRadius: "24px",
+                textAlign: "center",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "4px",
+                  background: `linear-gradient(to right, ${stat.color
+                    .replace("from-", "#")
+                    .split(" to-")
+                    .join(", #")})`,
+                }}
+              />
 
-      {/* How It Works Section */}
-      <div className="how-it-works-section">
-        <div className="section-header">
-          <h1 className="section-title">How FoodSaver Works</h1>
-          <p className="section-subtitle">
-            Our platform simplifies the process of connecting restaurants with NGOs, ensuring surplus food reaches those who need it most.
-          </p>
-          <Link to="/works" className="cta-button section-cta-button">
-            <span className="cta-text">Learn More</span>
-          </Link>
-        </div>
-        <div className="steps-grid">
-          {stepsData.map((step, index) => (
-            <div key={index} className="step-card">
-              <div className="step-icon">{step.icon}</div>
-              <div className="step-text">
-                <h2 className="step-title">{step.title}</h2>
-                <p className="step-description">{step.description}</p>
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ fontSize: "4rem", marginBottom: "16px" }}
+              >
+                {stat.icon}
+              </motion.div>
+
+              <div
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "900",
+                  background: `linear-gradient(135deg, ${stat.color
+                    .replace("from-", "#")
+                    .split(" to-")
+                    .join(", #")})`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  marginBottom: "8px",
+                }}
+              >
+                {countStart && <Counter end={stat.value} duration={2} />}
+                {stat.unit}
+              </div>
+
+              <div
+                style={{
+                  fontSize: "1.125rem",
+                  color: "rgba(255, 255, 255, 0.7)",
+                  fontWeight: "600",
+                }}
+              >
+                {stat.label}
               </div>
             </div>
           ))}
