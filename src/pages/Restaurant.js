@@ -353,25 +353,53 @@ const Restaurant = () => {
         >
           Join hundreds of restaurants already making an impact in their communities.
         </p>
-        <Link
-          to="/restaurant-dashboard"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            padding: '16px 32px',
-            backgroundColor: '#38e07b',
-            color: '#0e1a13',
-            fontWeight: '700',
-            fontSize: '18px',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            transition: 'background-color 0.3s'
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#2bc066'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#38e07b'}
-        >
-          Start Donating Today
-        </Link>
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link
+            to="/restaurant-submission"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '16px 32px',
+              backgroundColor: '#38e07b',
+              color: '#0e1a13',
+              fontWeight: '700',
+              fontSize: '18px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              transition: 'background-color 0.3s'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#2bc066'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#38e07b'}
+          >
+            🍽️ Donate Food Now
+          </Link>
+          <Link
+            to="/restaurant-dashboard"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '16px 32px',
+              backgroundColor: '#e8f2ec',
+              color: '#0e1a13',
+              fontWeight: '700',
+              fontSize: '18px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              border: '2px solid #38e07b',
+              transition: 'all 0.3s'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#38e07b';
+              e.target.style.color = '#0e1a13';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#e8f2ec';
+              e.target.style.color = '#0e1a13';
+            }}
+          >
+            View Dashboard
+          </Link>
+        </div>
       </div>
     </div>
   );

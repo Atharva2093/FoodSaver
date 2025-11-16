@@ -11,6 +11,7 @@ import Restaurant from './pages/Restaurant';
 import NGO from './pages/NGO';
 import Registration from './pages/Registration';
 import Contact from './pages/Contact';
+import RestaurantSubmission from './pages/RestaurantSubmission';
 import RestaurantDashboard from './pages/RestaurantDashboard';
 import NGODashboard from './pages/NGODashboard';
 import AdminDashboard from './pages/AdminDashboard';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/ngo" element={<NGO />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/restaurant-submission" element={<RestaurantSubmission />} />
             <Route path="/restaurant-dashboard" element={<RestaurantDashboard />} />
             <Route path="/ngo-dashboard" element={<NGODashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
