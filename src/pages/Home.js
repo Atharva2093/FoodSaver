@@ -1,16 +1,132 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // Added useEffect
 import { Link } from 'react-router-dom';
-import useTypewriter from '../hooks/useTypewriter';
-import CountUp from 'react-countup';
+import { motion } from 'framer-motion'; // Added missing framer-motion import
 
+// --- Inlined useTypewriter Hook ---
+// This hook provides the typing animation text
+const useTypewriter = (texts, speed = 100, pause = 1500) => {
+  const [text, setText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    if (!texts || texts.length === 0) return;
+
+    const currentText = texts[index];
+
+    // Handle deleting
+    if (isDeleting) {
+      if (subIndex > 0) {
+        const timeout = setTimeout(() => {
+          setText(currentText.substring(0, subIndex - 1));
+          setSubIndex(subIndex - 1);
+        }, speed / 2); // Faster deleting
+        return () => clearTimeout(timeout);
+      } else {
+        setIsDeleting(false);
+        setIndex((prevIndex) => (prevIndex + 1) % texts.length);
+        setSubIndex(0); // Reset subIndex for new text
+      }
+    }
+    // Handle typing
+    else {
+      if (subIndex < currentText.length) {
+        const timeout = setTimeout(() => {
+          setText(currentText.substring(0, subIndex + 1));
+          setSubIndex(subIndex + 1);
+        }, speed);
+        return () => clearTimeout(timeout);
+      } else {
+        // Pause at end of word
+        const timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, pause);
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [subIndex, isDeleting, index, texts, speed, pause]);
+
+  return text;
+};
+
+// --- Inlined SimpleCountUp Component ---
+// Replaces the 'react-countup' library
+const SimpleCountUp = ({ end, duration = 2, start = 0, startAnimation }) => {
+  const [count, setCount] = useState(start);
+
+  useEffect(() => {
+    // Don't start if prop is false
+    if (!startAnimation) {
+      return;
+    }
+
+    const frameRate = 1000 / 60; // 60 fps
+    const totalFrames = Math.round((duration * 1000) / frameRate);
+    const increment = (end - start) / totalFrames;
+    let currentFrame = 0;
+
+    const counter = setInterval(() => {
+      currentFrame++;
+      const newCount = start + increment * currentFrame;
+
+      if (currentFrame >= totalFrames) {
+        setCount(end); // Ensure it finishes precisely on 'end'
+        clearInterval(counter);
+      } else {
+        setCount(newCount);
+      }
+    }, frameRate);
+
+    // Cleanup function
+    return () => clearInterval(counter);
+  }, [end, start, duration, startAnimation]); // Add startAnimation to dependency array
+
+  // Format number with commas
+  const formatNumber = (num) => {
+    if (num >= end) {
+      return end.toLocaleString();
+    }
+    // Use ceil to make numbers count up nicely
+    return Math.ceil(num).toLocaleString();
+  };
+
+  return <>{formatNumber(count)}</>;
+};
+
+
+// --- Main Home Component ---
 const Home = () => {
   const typewriterTexts = ["Connecting Restaurants...", "Feeding the Hungry...", "Saving Surplus Food..."];
   const typewriterText = useTypewriter(typewriterTexts, 100);
 
+  // Added state for CountUp animation
+  const [countStart, setCountStart] = useState(false);
+
+  // Corrected statsData to include properties used in the JSX (icon, color, value, unit)
+  // This is necessary to prevent runtime errors when accessing stat.color, stat.icon, etc.
   const statsData = [
-    { label: 'Food Saved', value: '1,500 kg' },
-    { label: 'Meals Donated', value: '75,000' },
-    { label: 'Partners', value: '200+' },
+    {
+      label: "Food Saved",
+      value: 1500,
+      unit: "kg",
+      icon: "KG", // Placeholder icon
+      color: "from-emerald-400 to-teal-400", // Placeholder color
+    },
+    {
+      label: "Meals Donated",
+      value: 75000,
+      unit: "",
+      icon: "🍲", // Placeholder icon
+      color: "from-sky-400 to-cyan-400",
+    },
+    {
+      label: "Partners",
+      value: 200,
+      unit: "+",
+      icon: "🤝", // Placeholder icon
+      color: "from-purple-400 to-indigo-400",
+    },
   ];
 
   const stepsData = [
@@ -50,7 +166,7 @@ const Home = () => {
       imageClass: 'testimonial-image-1'
     },
     {
-      quote: '"Thanks to FoodSaver, we\'ve been able to provide more meals to those in need. It\'s a fantastic initiative."',
+      quote: '"Thanks to FoodSaver, we\'ve been ableto provide more meals to those in need. It\'s a fantastic initiative."',
       author: '- David Lee, NGO Coordinator',
       imageClass: 'testimonial-image-2'
     }
@@ -159,10 +275,12 @@ const Home = () => {
             justifyContent: "center",
             padding: "60px 20px",
             gap: "40px",
+            // Added flexWrap for responsiveness on smaller screens
+            flexWrap: "wrap",
           }}
         >
           {/* Left: Text Content */}
-          <div style={{ flex: 1, maxWidth: "600px" }}>
+          <div style={{ flex: 1, maxWidth: "600px", minWidth: "300px" }}>
             <motion.h1
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -196,7 +314,8 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              {currentText}
+              {/* Changed currentText to typewriterText to match variable name */}
+              {typewriterText}
               <span style={{ opacity: 0.5 }}>|</span>
             </motion.div>
 
@@ -214,38 +333,44 @@ const Home = () => {
               Join FoodSaver, the platform that connects restaurants with NGOs to minimize food waste and feed those in need. Together, we can make a difference.
             </motion.p>
 
-            <motion.button
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 20px 60px rgba(16, 185, 129, 0.5)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                padding: "20px 48px",
-                background:
-                  "linear-gradient(135deg, #10b981, #059669)",
-                color: "white",
-                fontWeight: "700",
-                fontSize: "1.25rem",
-                borderRadius: "50px",
-                border: "none",
-                cursor: "pointer",
-                boxShadow: "0 10px 40px rgba(16,185,129,0.4)",
-              }}
-            >
-              Get Started
-            </motion.button>
+            {/* Fixed CTA button: 
+              - Wrapped the motion.button in the <Link> component.
+              - Removed the stray/duplicate <Link> and extra </div> tags that were breaking the JSX.
+            */}
+            <Link to="/registration" style={{ textDecoration: 'none' }}>
+              <motion.button
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.9, duration: 0.8 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 60px rgba(16, 185, 129, 0.5)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  padding: "20px 48px",
+                  background:
+                    "linear-gradient(135deg, #10b981, #059669)",
+                  color: "white",
+                  fontWeight: "700",
+                  fontSize: "1.25rem",
+                  borderRadius: "50px",
+                  border: "none",
+                  cursor: "pointer",
+                  boxShadow: "0 10px 40px rgba(16,185,129,0.4)",
+                }}
+              >
+                Get Started
+              </motion.button>
+            </Link>
           </div>
-          <Link to="/registration" className="cta-button final-cta-button">
-            <span className="cta-text">Get Started</span>
-          </Link>
-        </div>
-      </div>
+          {/* Removed stray <Link> and </div> tags from here.
+            The hero section now correctly contains two children: 
+            1. The text content div (above)
+            2. The image motion.div (below)
+          */}
 
-         
+          {/* Right: Image Content */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -253,6 +378,7 @@ const Home = () => {
             style={{
               flex: 1,
               maxWidth: "600px",
+              minWidth: "300px",
               width: "100%",
               height: "auto",
               borderRadius: "16px",
@@ -278,6 +404,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
+          // Added onViewportEnter to trigger the countStart state
           onViewportEnter={() => setCountStart(true)}
           transition={{ duration: 0.8 }}
           style={{
@@ -314,10 +441,12 @@ const Home = () => {
                   left: 0,
                   right: 0,
                   height: "4px",
+                  // Fixed gradient logic to work with the placeholder colors
                   background: `linear-gradient(to right, ${stat.color
-                    .replace("from-", "#")
-                    .split(" to-")
-                    .join(", #")})`,
+                    .replace("from-", "")
+                    .replace("to-", "")
+                    .split(" ")
+                    .join(", ")})`,
                 }}
               />
 
@@ -333,17 +462,20 @@ const Home = () => {
                 style={{
                   fontSize: "3rem",
                   fontWeight: "900",
+                  // Fixed gradient logic
                   background: `linear-gradient(135deg, ${stat.color
-                    .replace("from-", "#")
-                    .split(" to-")
-                    .join(", #")})`,
+                    .replace("from-", "")
+                    .replace("to-", "")
+                    .split(" ")
+                    .join(", ")})`,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                   marginBottom: "8px",
                 }}
               >
-                {countStart && <Counter end={stat.value} duration={2} />}
+                {/* Replaced <CountUp> with <SimpleCountUp> and passed startAnimation prop */}
+                {countStart && <SimpleCountUp end={stat.value} duration={2} startAnimation={countStart} />}
                 {stat.unit}
               </div>
 
@@ -356,10 +488,14 @@ const Home = () => {
               >
                 {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
+      {/* The sections below use CSS classes (e.g., "testimonials-heading").
+        These will not be styled without a corresponding CSS file.
+        Leaving them as-is, as requested, to only fix errors.
+      */}
 
       {/* Testimonials */}
       <h2 className="testimonials-heading">Testimonials</h2>

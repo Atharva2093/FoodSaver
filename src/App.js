@@ -16,6 +16,7 @@ import NGODashboard from './pages/NGODashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import Contributors from './pages/Contributors';
 import Contribute from './pages/Contribute';
+import Support from './pages/Support';
 import './App.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/contributors" element={<Contributors />} />
             <Route path="/contribute" element={<Contribute />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </main>
         <Footer />
