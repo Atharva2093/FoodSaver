@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Restaurant = () => {
+  // SEO optimization
+  useEffect(() => {
+    document.title = 'Restaurant Food Donation Platform | FoodSaver - Reduce Waste, Feed Communities';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Join FoodSaver\'s restaurant food donation platform. Reduce food waste, help communities, get tax benefits. Safe food handling guidelines, legal protection, and easy pickup coordination.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Join FoodSaver\'s restaurant food donation platform. Reduce food waste, help communities, get tax benefits. Safe food handling guidelines, legal protection, and easy pickup coordination.';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+    }
+    
+    // Add keywords meta tag
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'restaurant food donation, food waste reduction, safe food handling, Good Samaritan Act, tax benefits, community impact, surplus food, food safety guidelines');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'restaurant food donation, food waste reduction, safe food handling, Good Samaritan Act, tax benefits, community impact, surplus food, food safety guidelines';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+    }
+  }, []);
   const benefits = [
     'Reduce food waste and operational costs',
     'Contribute to community welfare and social responsibility',
@@ -206,6 +232,128 @@ const Restaurant = () => {
         </div>
       </div>
 
+      {/* Legal & Safety Section */}
+      <div style={{ padding: '0 16px', marginBottom: '40px', backgroundColor: '#f8fbfa', borderRadius: '12px', border: '1px solid #daeded' }}>
+        <div style={{ padding: '32px 24px' }}>
+          <h2
+            style={{
+              color: '#0e1a13',
+              fontSize: '28px',
+              fontWeight: '700',
+              textAlign: 'center',
+              marginBottom: '32px'
+            }}
+          >
+            🛡️ Legal & Safety Guidelines
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+            <div style={{ padding: '24px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #daeded' }}>
+              <h3 style={{ color: '#0e1a13', fontSize: '20px', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                ⚖️ Legal Protection
+              </h3>
+              <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+                <li>Good Samaritan Food Donation Act protects donors</li>
+                <li>No liability for good faith donations</li>
+                <li>Tax deduction benefits available</li>
+                <li>Compliance with local health regulations</li>
+              </ul>
+            </div>
+            <div style={{ padding: '24px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #daeded' }}>
+              <h3 style={{ color: '#0e1a13', fontSize: '20px', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                🧼 Safety Standards
+              </h3>
+              <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+                <li>Maintain proper food temperatures</li>
+                <li>Use clean, food-grade containers</li>
+                <li>Label with preparation date and time</li>
+                <li>Follow FIFO (First In, First Out) principles</li>
+              </ul>
+            </div>
+          </div>
+          <div style={{ marginTop: '24px', padding: '20px', backgroundColor: '#e8f2ec', borderRadius: '8px', border: '1px solid #38e07b' }}>
+            <h4 style={{ color: '#0e1a13', fontSize: '18px', fontWeight: '700', marginBottom: '12px' }}>✅ Do's</h4>
+            <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px', marginBottom: '16px' }}>
+              <li>Donate food within 2 hours of preparation</li>
+              <li>Keep hot foods hot (above 140°F) and cold foods cold (below 40°F)</li>
+              <li>Use proper packaging and labeling</li>
+              <li>Maintain donation records for tax purposes</li>
+            </ul>
+            <h4 style={{ color: '#0e1a13', fontSize: '18px', fontWeight: '700', marginBottom: '12px' }}>❌ Don'ts</h4>
+            <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+              <li>Don't donate food past its expiration date</li>
+              <li>Don't mix different food types in same container</li>
+              <li>Don't donate food that's been sitting at room temperature</li>
+              <li>Don't forget to communicate special handling requirements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Food Types Section */}
+      <div style={{ padding: '0 16px', marginBottom: '40px' }}>
+        <h2
+          style={{
+            color: '#0e1a13',
+            fontSize: '28px',
+            fontWeight: '700',
+            textAlign: 'center',
+            marginBottom: '32px'
+          }}
+        >
+          🍽️ Types of Food We Accept
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+          <div style={{ padding: '24px', backgroundColor: '#e8f2ec', borderRadius: '12px', border: '1px solid #daeded' }}>
+            <h3 style={{ color: '#0e1a13', fontSize: '20px', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              🍲 Prepared Meals
+            </h3>
+            <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+              <li>Cooked entrees and side dishes</li>
+              <li>Soups and stews</li>
+              <li>Sandwiches and wraps</li>
+              <li>Salads (within 2 hours of prep)</li>
+            </ul>
+          </div>
+          <div style={{ padding: '24px', backgroundColor: '#e8f2ec', borderRadius: '12px', border: '1px solid #daeded' }}>
+            <h3 style={{ color: '#0e1a13', fontSize: '20px', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              📦 Packaged Foods
+            </h3>
+            <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+              <li>Unopened canned goods</li>
+              <li>Sealed packaged items</li>
+              <li>Bread and baked goods</li>
+              <li>Dairy products (within date)</li>
+            </ul>
+          </div>
+          <div style={{ padding: '24px', backgroundColor: '#e8f2ec', borderRadius: '12px', border: '1px solid #daeded' }}>
+            <h3 style={{ color: '#0e1a13', fontSize: '20px', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              🎉 Event Leftovers
+            </h3>
+            <ul style={{ color: '#51946c', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+              <li>Catered event surplus</li>
+              <li>Buffet items (properly maintained)</li>
+              <li>Untouched plated meals</li>
+              <li>Beverages and desserts</li>
+            </ul>
+          </div>
+        </div>
+        <div style={{ marginTop: '24px', padding: '24px', backgroundColor: '#fff3cd', borderRadius: '8px', border: '1px solid #ffc107' }}>
+          <h3 style={{ color: '#856404', fontSize: '20px', fontWeight: '700', marginBottom: '16px' }}>⚠️ Items NOT Accepted</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+            <ul style={{ color: '#856404', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+              <li>Expired or spoiled food</li>
+              <li>Home-cooked meals</li>
+              <li>Opened containers from customers</li>
+            </ul>
+            <ul style={{ color: '#856404', fontSize: '16px', lineHeight: '1.6', paddingLeft: '20px' }}>
+              <li>Alcohol or alcoholic beverages</li>
+              <li>Food with unknown ingredients</li>
+              <li>Items stored improperly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* How It Works Section */}
       <div style={{ padding: '0 16px', marginBottom: '40px' }}>
         <h2
@@ -217,7 +365,7 @@ const Restaurant = () => {
             marginBottom: '32px'
           }}
         >
-          How It Works for Restaurants
+          📋 How It Works for Restaurants
         </h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
