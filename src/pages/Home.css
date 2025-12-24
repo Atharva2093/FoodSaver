@@ -103,7 +103,7 @@
 
 .home-hero-cta:hover {
   transform: scale(1.05);
-  box-shadow: 0 20px 60px rgba(56, 224, 123, 0.5);
+  box-shadow: var(--shadow-primary-lg);
 }
 
 .home-hero-cta:active {
@@ -299,7 +299,7 @@
 
 .home-final-cta-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 20px 60px rgba(56, 224, 123, 0.5);
+  box-shadow: var(--shadow-primary-lg);
 }
 
 .home-final-cta-button:active {
@@ -328,10 +328,10 @@
 
 [data-theme="light"] .home-hero-cta,
 [data-theme="light"] .home-final-cta-button {
-  box-shadow: 0 10px 40px rgba(56, 224, 123, 0.3);
+  box-shadow: var(--shadow-primary-md);
 }
 
 [data-theme="light"] .home-hero-cta:hover,
 [data-theme="light"] .home-final-cta-button:hover {
-  box-shadow: 0 20px 60px rgba(56, 224, 123, 0.4);
+  box-shadow: var(--shadow-primary-lg);
 }

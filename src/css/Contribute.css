@@ -88,7 +88,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  color: white;
+  color: var(--text-inverse);
   box-shadow: var(--shadow-sm);
 }
 
@@ -144,7 +144,7 @@
   gap: 0.75rem;
   font-size: 1.15rem; /* Bigger font */
   font-weight: 600;
-  color: white;
+  color: var(--text-inverse);
   padding: 1.25rem 2.5rem; /* Much larger padding */
   border: none;
   border-radius: 12px; /* Softer radius */
@@ -154,14 +154,14 @@
   background-image: linear-gradient(to right, var(--primary-green-light), var(--primary-green-dark));
   
   /* "Featurefull" shadow */
-  box-shadow: 0 5px 15px 0 rgba(16, 185, 129, 0.3);
+  box-shadow: var(--shadow-primary-md);
   
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .btn-verify:hover {
   transform: scale(1.05) translateY(-3px); /* Pop effect */
-  box-shadow: 0 8px 25px 0 rgba(16, 185, 129, 0.4);
+  box-shadow: var(--shadow-primary-lg);
 }
 
 .btn-verify svg {

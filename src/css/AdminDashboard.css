@@ -112,7 +112,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-inverse);
   font-weight: bold;
 }
 
@@ -225,7 +225,7 @@
 
 .btn-reject {
   background: var(--status-error-text);
-  color: white;
+  color: var(--text-inverse);
   border: none;
   padding: 6px 12px;
   border-radius: 6px;

@@ -181,35 +181,23 @@ const Works = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          style={{ marginBottom: '120px' }}
+          className="works-benefits-section"
         >
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div className="works-benefits-header">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                fontWeight: '900',
-                marginBottom: '16px',
-                background: 'linear-gradient(to right, #10b981, #06b6d4)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
+              className="works-benefits-title"
             >
               Benefits for Everyone
             </motion.h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '1.1rem' }}>
+            <p className="works-benefits-subtitle">
               Creating positive impact across all stakeholders
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '32px'
-          }}>
+          <div className="works-benefits-grid">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -218,60 +206,20 @@ const Works = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 whileHover={{ y: -8 }}
                 viewport={{ once: true }}
-                style={{
-                  position: 'relative',
-                  padding: '32px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '24px',
-                  overflow: 'hidden'
-                }}
+                className="works-benefit-card"
               >
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '4px',
-                  background: `linear-gradient(to right, #10b981, #06b6d4)`
-                }} />
+                <div className="works-benefit-card-top-bar" />
                 
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px',
-                  marginBottom: '24px'
-                }}>
-                  <div style={{
-                    width: '56px',
-                    height: '56px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'rgba(16, 185, 129, 0.1)',
-                    borderRadius: '16px',
-                    fontSize: '28px'
-                  }}>
+                <div className="works-benefit-header">
+                  <div className="works-benefit-icon">
                     {benefit.icon}
                   </div>
-                  <h3 style={{
-                    fontSize: '1.5rem',
-                    fontWeight: '700',
-                    color: 'white'
-                  }}>
+                  <h3 className="works-benefit-title">
                     {benefit.title}
                   </h3>
                 </div>
 
-                <ul style={{
-                  listStyle: 'none',
-                  padding: 0,
-                  margin: 0,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px'
-                }}>
+                <ul className="works-benefit-list">
                   {benefit.items.map((item, i) => (
                     <motion.li
                       key={i}
@@ -279,21 +227,9 @@ const Works = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.15 + i * 0.05 }}
                       viewport={{ once: true }}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        color: 'rgba(255, 255, 255, 0.7)',
-                        fontSize: '1rem'
-                      }}
+                      className="works-benefit-item"
                     >
-                      <div style={{
-                        width: '6px',
-                        height: '6px',
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #10b981, #059669)',
-                        flexShrink: 0
-                      }} />
+                      <div className="works-benefit-bullet" />
                       {item}
                     </motion.li>
                   ))}
@@ -309,69 +245,23 @@ const Works = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          style={{
-            textAlign: 'center',
-            padding: '80px 20px',
-            marginBottom: '40px',
-            position: 'relative',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            background: 'rgba(255, 255, 255, 0.02)',
-            border: '1px solid rgba(255, 255, 255, 0.08)'
-          }}
+          className="works-cta-section"
         >
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1), transparent 70%)',
-            pointerEvents: 'none'
-          }} />
+          <div className="works-cta-bg-glow" />
           
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <h2 style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: '900',
-              marginBottom: '16px',
-              background: 'linear-gradient(to right, #10b981, #06b6d4, #8b5cf6)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
+          <div className="works-cta-content">
+            <h2 className="works-cta-title">
               Ready to Make an Impact?
             </h2>
-            <p style={{
-              color: 'rgba(255, 255, 255, 0.6)',
-              fontSize: '1.1rem',
-              marginBottom: '40px',
-              maxWidth: '600px',
-              margin: '0 auto 40px'
-            }}>
+            <p className="works-cta-description">
               Join our community and start making a difference today
             </p>
 
-            <div style={{
-              display: 'flex',
-              gap: '16px',
-              justifyContent: 'center',
-              flexWrap: 'wrap'
-            }}>
+            <div className="works-cta-buttons-wrapper">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '16px 32px',
-                  background: 'linear-gradient(135deg, #10b981, #059669)',
-                  color: 'white',
-                  fontWeight: '700',
-                  fontSize: '1.1rem',
-                  borderRadius: '50px',
-                  boxShadow: '0 10px 40px rgba(16, 185, 129, 0.4)',
-                  border: 'none',
-                  cursor: 'pointer'
-                }}
+                className="works-btn-restaurant"
               >
                 🏪 For Restaurants
               </motion.button>
@@ -379,20 +269,7 @@ const Works = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '16px 32px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  backdropFilter: 'blur(10px)',
-                  border: '2px solid rgba(255, 255, 255, 0.2)',
-                  color: 'white',
-                  fontWeight: '700',
-                  fontSize: '1.1rem',
-                  borderRadius: '50px',
-                  cursor: 'pointer'
-                }}
+                className="works-btn-ngo"
               >
                 🤲 For NGOs
               </motion.button>

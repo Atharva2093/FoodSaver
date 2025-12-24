@@ -390,7 +390,7 @@
 
 .menu-form input {
   padding: 12px 16px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-default);
   border-radius: 8px;
   font-size: 1rem;
 }
@@ -419,7 +419,7 @@
   display: block;
   width: 48px;
   height: 24px;
-  background: #cbd5e1;
+  background: var(--border-default);
   border-radius: 24px;
   transition: 0.3s;
 }
@@ -431,13 +431,13 @@
   width: 18px;
   left: 3px;
   bottom: 3px;
-  background: white;
+  background: var(--text-inverse);
   border-radius: 50%;
   transition: 0.3s;
 }
 
 input:checked + .slider {
-  background: #10b981;
+  background: var(--color-primary);
 }
 
 input:checked + .slider:before {
@@ -447,7 +447,7 @@ input:checked + .slider:before {
 .switch-label {
   margin-left: 8px;
   font-size: 0.9rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
 .menu-list {
@@ -461,20 +461,20 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background: #f8fafc;
+  background: var(--bg-secondary);
   border-radius: 12px;
-  border-left: 4px solid #10b981;
+  border-left: 4px solid var(--color-primary);
 }
 
 .item-info h4 {
   margin: 0 0 4px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-primary);
 }
 
 .item-info p {
   margin: 0;
-  color: #0f766e;
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -490,11 +490,11 @@ input:checked + .slider:before {
 }
 
 .availability .available {
-  color: #16a34a;
+  color: var(--status-success-text);
 }
 
 .availability .unavailable {
-  color: #dc2626;
+  color: var(--status-error-text);
 }
 
 /* === Newsletter === */
@@ -507,7 +507,7 @@ input:checked + .slider:before {
 .newsletter-form input {
   flex: 1;
   padding: 12px 16px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-default);
   border-radius: 8px;
   font-size: 1rem;
 }

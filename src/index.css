@@ -36,16 +36,30 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 4px 12px rgba(56, 224, 123, 0.3);
+  
+  /* Primary Color Shadows */
+  --shadow-primary-md: 0 10px 40px rgba(56, 224, 123, 0.3);
+  --shadow-primary-lg: 0 20px 60px rgba(56, 224, 123, 0.5);
   
   /* Status Colors - Dark Mode */
   --status-success-bg: #1a3d2b;
   --status-success-text: #38e07b;
+  --status-success: #38e07b;
   --status-warning-bg: #3d2f1a;
   --status-warning-text: #f5a623;
+  --status-warning-border: #f5a623;
   --status-error-bg: #3d1a1a;
   --status-error-text: #ff6b6b;
+  --status-error: #ff6b6b;
   --status-info-bg: #1a2d3d;
   --status-info-text: #4a9eff;
+  
+  /* Additional Colors */
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --badge-gold: #ffd700;
+  --badge-silver: #c0c0c0;
+  --badge-bronze: #cd7f32;
   
   /* Chart & Data Visualization */
   --chart-bg: #1e2a24;
@@ -86,16 +100,30 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 4px 12px rgba(56, 224, 123, 0.2);
+  
+  /* Primary Color Shadows - Light Mode */
+  --shadow-primary-md: 0 10px 40px rgba(56, 224, 123, 0.3);
+  --shadow-primary-lg: 0 20px 60px rgba(56, 224, 123, 0.4);
   
   /* Status Colors - Light Mode */
   --status-success-bg: #e8f7ef;
   --status-success-text: #0d9a6d;
+  --status-success: #0d9a6d;
   --status-warning-bg: #fff8e6;
   --status-warning-text: #d97706;
+  --status-warning-border: #ffc107;
   --status-error-bg: #ffeaea;
   --status-error-text: #dc2626;
+  --status-error: #dc2626;
   --status-info-bg: #e0f2fe;
   --status-info-text: #0284c7;
+  
+  /* Additional Colors - Light Mode */
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+  --badge-gold: #ffd700;
+  --badge-silver: #c0c0c0;
+  --badge-bronze: #cd7f32;
   
   /* Chart & Data Visualization - Light Mode */
   --chart-bg: #ffffff;
