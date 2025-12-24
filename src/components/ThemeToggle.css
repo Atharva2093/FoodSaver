@@ -70,10 +70,10 @@
 
 /* Dark mode specific styling */
 :root .theme-toggle {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 /* Light mode specific styling */
 [data-theme="light"] .theme-toggle {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }

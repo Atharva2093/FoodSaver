@@ -116,6 +116,39 @@
   font-weight: bold;
 }
 
+/* StatCard Variants */
+.stat-card-primary {
+  background: linear-gradient(135deg, var(--status-success-bg), var(--bg-card));
+}
+
+.stat-icon-primary {
+  background: var(--color-primary);
+}
+
+.stat-card-success {
+  background: linear-gradient(135deg, var(--status-success-bg), var(--bg-card));
+}
+
+.stat-icon-success {
+  background: var(--text-tertiary);
+}
+
+.stat-card-info {
+  background: linear-gradient(135deg, var(--status-info-bg), var(--bg-card));
+}
+
+.stat-icon-info {
+  background: var(--color-primary-hover);
+}
+
+.stat-card-secondary {
+  background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-card));
+}
+
+.stat-icon-secondary {
+  background: var(--color-primary-light);
+}
+
 .stat-value {
   font-size: 28px;
   font-weight: 700;

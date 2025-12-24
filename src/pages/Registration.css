@@ -51,11 +51,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: var(--bg-overlay);
   z-index: 1;
 }
 
@@ -65,22 +61,23 @@
 }
 
 .registration-hero-title {
-  color: white;
+  color: var(--text-inverse);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   line-height: 1.2;
   margin: 0 0 16px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: var(--shadow-text);
 }
 
 .registration-hero-subtitle {
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-inverse);
   font-size: clamp(1rem, 3.5vw, 1.25rem);
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
   max-width: 600px;
   padding: 0 12px;
+  opacity: 0.95;
 }
 
 /* Form Container */
@@ -176,7 +173,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(56, 224, 123, 0.3);
+  box-shadow: var(--shadow-glow);
 }
 
 .registration-submit-button:hover:not(:disabled) {

@@ -94,6 +94,23 @@
   font-weight: bold;
 }
 
+/* StatCard Variants */
+.stat-card-primary {
+  background: linear-gradient(135deg, var(--status-success-bg), var(--bg-card));
+}
+
+.stat-icon-primary {
+  background: var(--color-primary);
+}
+
+.stat-card-warning {
+  background: linear-gradient(135deg, var(--status-warning-bg), var(--bg-card));
+}
+
+.stat-icon-warning {
+  background: var(--status-warning);
+}
+
 .stat-value {
   font-size: 28px;
   font-weight: 700;

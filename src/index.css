@@ -37,6 +37,7 @@
   --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
   --shadow-glow: 0 4px 12px rgba(56, 224, 123, 0.3);
+  --shadow-text: 0 2px 8px rgba(0, 0, 0, 0.4);
   
   /* Primary Color Shadows */
   --shadow-primary-md: 0 10px 40px rgba(56, 224, 123, 0.3);
@@ -49,6 +50,7 @@
   --status-warning-bg: #3d2f1a;
   --status-warning-text: #f5a623;
   --status-warning-border: #f5a623;
+  --status-warning: #f5a623;
   --status-error-bg: #3d1a1a;
   --status-error-text: #ff6b6b;
   --status-error: #ff6b6b;
@@ -101,6 +103,7 @@
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 4px 12px rgba(56, 224, 123, 0.2);
+  --shadow-text: 0 1px 4px rgba(0, 0, 0, 0.15);
   
   /* Primary Color Shadows - Light Mode */
   --shadow-primary-md: 0 10px 40px rgba(56, 224, 123, 0.3);
@@ -113,6 +116,7 @@
   --status-warning-bg: #fff8e6;
   --status-warning-text: #d97706;
   --status-warning-border: #ffc107;
+  --status-warning: #d97706;
   --status-error-bg: #ffeaea;
   --status-error-text: #dc2626;
   --status-error: #dc2626;
