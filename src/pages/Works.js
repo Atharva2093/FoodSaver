@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import './Works.css';
 
 const Works = () => {
   const stepsData = [
@@ -54,12 +56,13 @@ const Works = () => {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #0a0a0a, #1a1a1a)', color: 'white' }}>
+    <div className="works-page">
       {/* Animated Background Particles */}
-      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', pointerEvents: 'none', opacity: 0.3 }}>
+      <div className="works-orbs-container">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
+            className="works-orb"
             initial={{ x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000) }}
             animate={{ 
               x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
@@ -70,49 +73,20 @@ const Works = () => {
               repeat: Infinity,
               repeatType: 'reverse'
             }}
-            style={{
-              position: 'absolute',
-              width: Math.random() * 4 + 1 + 'px',
-              height: Math.random() * 4 + 1 + 'px',
-              borderRadius: '50%',
-              background: `rgba(16, 185, 129, ${Math.random() * 0.5 + 0.1})`
-            }}
           />
         ))}
       </div>
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: '1400px', margin: '0 auto', padding: '0 20px' }}>
+      <div className="works-content-wrapper">
         {/* Back Button */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          style={{ padding: '24px 0' }}
+          className="works-back-button-wrapper"
         >
           <button
             onClick={() => window.history.back()}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '12px 24px',
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              color: 'white',
-              fontWeight: '600',
-              fontSize: '14px',
-              borderRadius: '50px',
-              cursor: 'pointer',
-              transition: 'all 0.3s'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-              e.currentTarget.style.transform = 'translateX(-4px)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-              e.currentTarget.style.transform = 'translateX(0)';
-            }}
+            className="works-back-button"
           >
             <span>←</span> Back to Home
           </button>
@@ -123,70 +97,35 @@ const Works = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          style={{
-            position: 'relative',
-            minHeight: '500px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '80px 20px',
-            marginBottom: '80px',
-            borderRadius: '24px',
-            overflow: 'hidden'
-          }}
+          className="works-hero"
         >
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: 'url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'brightness(0.3)'
-          }} />
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.2), transparent 70%)'
-          }} />
+          <div className="works-hero-bg-image" />
+          <div className="works-hero-bg-gradient" />
           
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            style={{ position: 'relative', textAlign: 'center', zIndex: 1 }}
+            className="works-hero-content"
           >
             <motion.div
               animate={{ rotate: [0, 5, -5, 0] }}
               transition={{ duration: 5, repeat: Infinity }}
-              style={{ fontSize: '4rem', marginBottom: '24px' }}
+              className="works-hero-icon"
             >
               ⚡
             </motion.div>
-            <h1 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: '900',
-              marginBottom: '24px',
-              background: 'linear-gradient(to right, #10b981, #06b6d4, #8b5cf6)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
+            <h1 className="works-hero-title">
               How FoodSaver Works
             </h1>
-            <p style={{
-              fontSize: '1.25rem',
-              color: 'rgba(255, 255, 255, 0.8)',
-              maxWidth: '700px',
-              lineHeight: '1.8'
-            }}>
+            <p className="works-hero-subtitle">
               A seamless 5-step process connecting surplus food with those who need it most
             </p>
           </motion.div>
         </motion.div>
 
         {/* Steps Section */}
-        <div style={{ marginBottom: '120px' }}>
+        <div className="works-steps-section">
           {stepsData.map((step, index) => (
             <motion.div
               key={index}
@@ -194,31 +133,15 @@ const Works = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true, margin: '-100px' }}
-              style={{ marginBottom: '32px' }}
+              className="works-step-wrapper"
             >
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                style={{
-                  position: 'relative',
-                  display: 'flex',
-                  gap: '32px',
-                  padding: '32px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '24px',
-                  alignItems: 'center',
-                  overflow: 'hidden'
-                }}
+                className="works-step-card"
               >
                 
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, transparent 60%)',
-                  pointerEvents: 'none'
-                }} />
+                <div className="works-step-bg-gradient" />
 
                 
                 <motion.div
@@ -226,69 +149,26 @@ const Works = () => {
                   whileInView={{ scale: 1, rotate: 0 }}
                   transition={{ type: 'spring', stiffness: 200, delay: index * 0.1 + 0.2 }}
                   viewport={{ once: true }}
-                  style={{
-                    position: 'relative',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '80px',
-                    height: '80px',
-                    background: 'linear-gradient(135deg, #10b981, #059669)',
-                    borderRadius: '20px',
-                    fontSize: '32px',
-                    flexShrink: 0,
-                    boxShadow: '0 10px 40px rgba(16, 185, 129, 0.3)'
-                  }}
+                  className="works-step-icon-wrapper"
                 >
                   {step.icon}
-                  <div style={{
-                    position: 'absolute',
-                    top: '-8px',
-                    right: '-8px',
-                    width: '32px',
-                    height: '32px',
-                    background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '14px',
-                    fontWeight: '900',
-                    color: 'white',
-                    border: '2px solid #0a0a0a'
-                  }}>
+                  <div className="works-step-number">
                     {step.step}
                   </div>
                 </motion.div>
 
-                <div style={{ flex: 1, position: 'relative' }}>
-                  <h3 style={{
-                    fontSize: '1.5rem',
-                    fontWeight: '700',
-                    marginBottom: '12px',
-                    color: 'white'
-                  }}>
+                <div className="works-step-content">
+                  <h3 className="works-step-title">
                     {step.title}
                   </h3>
-                  <p style={{
-                    fontSize: '1rem',
-                    lineHeight: '1.7',
-                    color: 'rgba(255, 255, 255, 0.7)'
-                  }}>
+                  <p className="works-step-description">
                     {step.description}
                   </p>
                 </div>
 
                 
                 {index < stepsData.length - 1 && (
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '-32px',
-                    left: '72px',
-                    width: '2px',
-                    height: '32px',
-                    background: 'linear-gradient(to bottom, rgba(16, 185, 129, 0.5), transparent)'
-                  }} />
+                  <div className="works-step-connector" />
                 )}
               </motion.div>
             </motion.div>

@@ -814,7 +814,7 @@ html {
 
 /* Typewriter Animation */
 .typewriter {
-  color: white;
+  color: var(--text-inverse);
   font-size: 1.5rem;
   font-weight: 700;
   min-height: 2rem;
