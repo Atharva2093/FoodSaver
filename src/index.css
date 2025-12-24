@@ -17,7 +17,7 @@
   --bg-card: #1e2a24;
   --bg-card-hover: #243029;
   --bg-input: #1a2820;
-  --bg-overlay: rgba(11, 15, 12, 0.95);
+  --bg-overlay: rgba(11, 15, 12, 0.4) 0%, rgba(11, 15, 12, 0.7) 100%;
   
   /* Text Colors - Dark Mode */
   --text-primary: #f8fbfa;
@@ -67,7 +67,7 @@
   --bg-card: #ffffff;
   --bg-card-hover: #f8fafc;
   --bg-input: #ffffff;
-  --bg-overlay: rgba(248, 250, 252, 0.95);
+  --bg-overlay: rgba(248, 250, 252, 0.3) 0%, rgba(248, 250, 252, 0.6) 100%;
   
   /* Text Colors - Light Mode */
   --text-primary: #0f172a;

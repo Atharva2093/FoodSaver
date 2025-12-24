@@ -165,8 +165,8 @@
 }
 
 .spinner-circle {
-  border: 5px solid var(--card-background);
-  border-top: 5px solid var(--primary-color);
+  border: 5px solid var(--bg-card);
+  border-top: 5px solid var(--color-primary);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -269,11 +269,11 @@
 
 /* --- How to Contribute Section --- */
 .contribute-section {
-  padding: 50px 0; 
+  padding: 50px 20px; 
   text-align: center;
-  background-color: white;
+  background: var(--bg-primary);
   border-radius: 16px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   margin-top: 3rem;
 }
 .section-header {
@@ -282,7 +282,11 @@
 .section-header h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: var(--primary-color);
+  color: var(--text-primary);
+}
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 .contribute-steps {
   display: flex;
@@ -291,31 +295,33 @@
   gap: 25px;
 }
 .step-card {
-  border: 1px solid var(--border-color);
-  background: var(--background-light);
+  border: 1px solid var(--border-default);
+  background: var(--bg-card);
   border-radius: 12px;
-  padding: 20px;
+  padding: 24px;
   width: 200px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .step-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
 }
 .step-icon {
   font-size: 36px;
   margin-bottom: 15px;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 .step-card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: var(--secondary-color);
+  color: var(--text-primary);
 }
 .step-card p {
   font-size: 0.9rem;
-  color: var(--tertiary-color);
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 /* --- Activity Timeline --- */

@@ -1,0 +1,287 @@
+/* Restaurant Page Styles */
+
+/* Page Container */
+.restaurant-page {
+  padding: 12px 16px;
+}
+
+/* Back Button */
+.restaurant-back-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.restaurant-back-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hero Section */
+.restaurant-hero {
+  display: flex;
+  min-height: 400px;
+  flex-direction: column;
+  gap: 24px;
+  background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin-bottom: 40px;
+}
+
+.restaurant-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.restaurant-hero-title {
+  color: var(--text-inverse);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.033em;
+}
+
+.restaurant-hero-subtitle {
+  color: var(--text-inverse);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* Benefits Section */
+.restaurant-benefits {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.restaurant-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--text-primary);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.benefit-card {
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-default);
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.benefit-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.benefit-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* How It Works Section */
+.restaurant-how-it-works {
+  padding: 60px 20px;
+  background: var(--bg-secondary);
+}
+
+.steps-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-default);
+  transition: all 0.3s ease;
+}
+
+.step-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.step-number {
+  min-width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--color-primary), var(--text-tertiary));
+  color: var(--text-inverse);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.step-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.step-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Call to Action */
+.restaurant-cta {
+  padding: 80px 20px;
+  text-align: center;
+  background: var(--bg-primary);
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.cta-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 32px;
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.cta-btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 2px solid var(--border-default);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn-secondary:hover {
+  border-color: var(--color-primary);
+  background: var(--bg-card);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .restaurant-hero {
+    min-height: 300px;
+  }
+
+  .restaurant-hero-title {
+    font-size: 2rem;
+  }
+
+  .restaurant-hero-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .restaurant-section-title {
+    font-size: 1.75rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './Restaurant.css';
 
 const Restaurant = () => {
   // SEO optimization
@@ -63,82 +64,22 @@ const Restaurant = () => {
   return (
     <div className="content-wrapper">
       {/* Back to Home Button */}
-      <div style={{ padding: '12px 16px' }}>
-        <Link
-          to="/"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            padding: '8px 16px',
-            backgroundColor: '#94e0b2',
-            color: '#101914',
-            fontWeight: 'bold',
-            fontSize: '14px',
-            borderRadius: '12px',
-            textDecoration: 'none',
-            transition: 'background-color 0.3s'
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#7bcc9b'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#94e0b2'}
-        >
+      <div className="restaurant-page">
+        <Link to="/" className="restaurant-back-btn">
           ⬅ Back to Home
         </Link>
       </div>
 
       {/* Hero Section */}
-      <div
-        style={{
-          display: 'flex',
-          minHeight: '400px',
-          flexDirection: 'column',
-          gap: '24px',
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          borderRadius: '8px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '16px',
-          marginBottom: '40px'
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'center' }}>
-          <h1
-            style={{
-              color: 'white',
-              fontSize: '2.5rem',
-              fontWeight: '900',
-              lineHeight: '1.25',
-              letterSpacing: '-0.033em'
-            }}
-          >
-            For Restaurants
-          </h1>
-          <h2 style={{ color: 'white', fontSize: '1rem', fontWeight: '400', lineHeight: '1.5' }}>
+      <div className="restaurant-hero">
+        <div className="restaurant-hero-content">
+          <h1 className="restaurant-hero-title">For Restaurants</h1>
+          <h2 className="restaurant-hero-subtitle">
             Turn your surplus food into community impact. Join hundreds of restaurants making a difference.
           </h2>
         </div>
-        <Link to="/registration" style={{
-          display: 'flex',
-          minWidth: '84px',
-          maxWidth: '480px',
-          cursor: 'pointer',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-          borderRadius: '12px',
-          height: '48px',
-          padding: '0 20px',
-          backgroundColor: '#38e07b',
-          color: '#0e1a13',
-          fontSize: '16px',
-          fontWeight: 'bold',
-          lineHeight: 'normal',
-          letterSpacing: '0.015em',
-          textDecoration: 'none'
-        }}>
-          <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Get Started</span>
+        <Link to="/registration" className="cta-btn-primary">
+          <span>Get Started</span>
         </Link>
       </div>
 
