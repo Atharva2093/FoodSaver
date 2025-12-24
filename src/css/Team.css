@@ -6,8 +6,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #374151; /* text-gray-700 */
-  background-color: #f9fafb; /* bg-gray-50 */
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
 }
 
 .team-page-wrapper {
@@ -21,7 +21,7 @@ main {
 /* --- Utility Classes --- */
 .container {
   width: 100%;
-  max-width: 1152px; /* Roughly container */
+  max-width: 1152px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -43,10 +43,10 @@ main {
 }
 
 .section-white {
-  background-color: #ffffff;
+  background-color: var(--bg-secondary);
 }
 .section-gray {
-  background-color: #f9fafb; /* bg-gray-50 */
+  background-color: var(--bg-primary);
 }
 
 .team-section,
@@ -72,29 +72,29 @@ main {
 }
 
 .section-title {
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 800; /* font-extrabold */
-  color: #1f2937; /* text-gray-900 */
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
   margin-top: 0;
-  margin-bottom: 1rem; /* mb-4 */
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: 3rem; /* md:text-5xl */
+    font-size: 3rem;
   }
 }
 
 .section-description {
-  font-size: 1.125rem; /* text-lg */
+  font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #4b5563; /* text-gray-600 */
+  color: var(--text-secondary);
   margin: 0;
 }
 
 /* --- Hero Section --- */
 .team-hero-section {
-  background-color: #ffffff;
+  background-color: var(--bg-secondary);
   padding: 5rem 0;
 }
 
@@ -123,9 +123,9 @@ main {
 }
 
 .hero-title {
-  font-size: 2.5rem; /* text-4xl */
+  font-size: 2.5rem;
   font-weight: 900;
-  color: #134e4a; /* text-emerald-900 */
+  color: var(--text-tertiary);
   margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -133,14 +133,14 @@ main {
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 4rem; /* md:text-6xl */
+    font-size: 4rem;
   }
 }
 
 .hero-description {
-  font-size: 1.125rem; /* text-lg */
+  font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #4b5563; /* text-gray-600 */
+  color: var(--text-secondary);
 }
 
 .hero-image-wrapper {

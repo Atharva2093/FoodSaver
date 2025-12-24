@@ -1,9 +1,9 @@
-* Restaurant Form Styles */
+/* Restaurant Form Styles */
 .form-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background: #f8fbfa;
+  background: var(--bg-primary);
   min-height: 100vh;
 }
 
@@ -15,21 +15,22 @@
 .form-header h1 {
   font-size: 2rem;
   font-weight: 700;
-  color: #0b0f0c;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .form-header p {
-  color: #51946c;
+  color: var(--text-tertiary);
   font-size: 1rem;
 }
 
 /* Form Layout */
 .restaurant-form {
-  background: white;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 32px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-default);
 }
 
 .form-grid {
@@ -58,7 +59,7 @@
 
 .form-group label {
   font-weight: 600;
-  color: #0b0f0c;
+  color: var(--text-primary);
   font-size: 0.95rem;
 }
 
@@ -67,27 +68,28 @@
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 2px solid #daeded;
+  border: 2px solid var(--border-default);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--bg-input);
+  color: var(--text-primary);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #38e07b;
-  box-shadow: 0 0 0 3px rgba(56, 224, 123, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--status-success-bg);
   transform: translateY(-1px);
 }
 
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-  border-color: #e74c3c;
-  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+  border-color: var(--status-error-text);
+  box-shadow: 0 0 0 3px var(--status-error-bg);
 }
 
 /* Quantity Input */

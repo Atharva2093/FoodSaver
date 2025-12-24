@@ -4,6 +4,8 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-primary);
+  min-height: 100vh;
 }
 
 /* === Header === */
@@ -19,12 +21,12 @@
 .dashboard-title {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #0f766e;
+  color: var(--text-tertiary);
   margin: 0;
 }
 
 .dashboard-subtitle {
-  color: #4b5563;
+  color: var(--text-secondary);
   font-size: 1.1rem;
   margin-top: 8px;
 }
@@ -44,29 +46,31 @@
 }
 
 .kpi-card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   transition: transform 0.2s;
+  border: 1px solid var(--border-default);
 }
 
 .kpi-card:hover {
   transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .kpi-icon {
   width: 60px;
   height: 60px;
-  background: #ecfdf5;
+  background: var(--status-success-bg);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  color: #0f766e;
+  color: var(--text-tertiary);
   margin-right: 16px;
 }
 
@@ -77,20 +81,20 @@
 .kpi-value {
   font-size: 2rem;
   font-weight: 800;
-  color: #0f766e;
+  color: var(--text-tertiary);
   margin: 0 0 4px;
 }
 
 .kpi-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-primary);
   margin: 0 0 4px;
 }
 
 .kpi-subtitle {
   font-size: 0.875rem;
-  color: #64748b;
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -109,11 +113,12 @@
 
 /* === Cards === */
 .card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
   margin-bottom: 24px;
+  border: 1px solid var(--border-default);
 }
 
 .section-header {
@@ -126,7 +131,7 @@
 .section-header h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -149,51 +154,51 @@
 }
 
 .btn-outline {
-  background: white;
-  color: #0f766e;
-  border: 2px solid #0f766e;
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  border: 2px solid var(--text-tertiary);
 }
 
 .btn-outline:hover {
-  background: #f0fdfa;
+  background: var(--status-success-bg);
 }
 
 .btn-donate {
-  background: #0d9488;
-  color: white;
+  background: var(--text-tertiary);
+  color: var(--text-inverse);
   padding: 12px 24px;
   font-weight: 700;
-  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-donate:hover {
-  background: #0f766e;
+  background: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-primary {
-  background: #10b981;
-  color: white;
+  background: var(--color-primary);
+  color: var(--text-inverse);
 }
 
 .btn-primary:hover {
-  background: #0d9a6d;
+  background: var(--color-primary-hover);
 }
 
 .btn-success {
-  background: #10b981;
-  color: white;
+  background: var(--color-primary);
+  color: var(--text-inverse);
 }
 
 .btn-warning {
-  background: #f59e0b;
-  color: white;
+  background: var(--status-warning-text);
+  color: var(--text-inverse);
 }
 
 .btn-danger {
-  background: #ef4444;
-  color: white;
+  background: var(--status-error-text);
+  color: var(--text-inverse);
 }
 
 .btn-sm {
